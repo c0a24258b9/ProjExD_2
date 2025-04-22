@@ -30,12 +30,12 @@ def check_bound(rct: pg.Rect) -> tuple[bool, bool]:
         tate = False
     return yoko, tate
 
-"""
-ゲームオーバー時に、半透明の黒い画面上に「Game Over」と表
-示し，泣いているこうかとん画像を貼り付ける関数
-"""
 
 def gameover(screen: pg.Surface) -> None:
+    """
+    ゲームオーバー時に、半透明の黒い画面上に「Game Over」と表
+    示し，泣いているこうかとん画像を貼り付ける関数
+    """
     ko_img = pg.image.load("fig/8.png") 
     font = pg.font.SysFont(None, 100)
     gameover_text = font.render("Game Over", True, (255,255,255))
@@ -83,12 +83,9 @@ def main():
                 return
         screen.blit(bg_img, [0, 0]) 
 
-
         if kk_rct.colliderect(bb_rct): #重なったとき
             gameover(screen)
             return
-
-        
 
         key_lst = pg.key.get_pressed()
         sum_mv = [0, 0]
